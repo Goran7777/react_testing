@@ -13,7 +13,9 @@ test('error response from server when submiting order', async () => {
   );
   render(<OrderConfirmation setOrderPhase={jest.fn()} />);
 
-  const alert = await screen.findByTestId('alertId');
+  const alert = await screen.findByText(
+    'Something went wrong.Please try again later'
+  );
 
   expect(alert).toHaveTextContent(
     'Something went wrong.Please try again later'

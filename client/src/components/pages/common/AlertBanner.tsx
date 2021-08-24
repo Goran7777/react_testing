@@ -11,13 +11,8 @@ const AlertBanner: React.FC<IProps> = ({ message, variant }) => {
   //   message || 'An unexpected error ocurred.Please try again later.';
   // const alertVariant = variant || 'danger';
   return (
-    <div className="alert" role="alert">
-      <p
-        data-testid="alertId"
-        style={{ backgroundColor: 'red', color: 'white' }}
-      >
-        {message}
-      </p>
+    <div className="alert">
+      <p style={{ backgroundColor: 'red', color: 'white' }}>{message}</p>
     </div>
   );
 };

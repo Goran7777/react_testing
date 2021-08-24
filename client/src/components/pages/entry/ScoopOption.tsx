@@ -39,7 +39,7 @@ const ScoopOption: React.FC<IProps> = ({
         alt={`${name} scoop`}
       />
       <form className="scoop-option__form">
-        <label className="" htmlFor="scoop-option">
+        <label className="" htmlFor={name}>
           {name}
         </label>
         <input
@@ -47,9 +47,9 @@ const ScoopOption: React.FC<IProps> = ({
           max={10}
           role="scoop-input"
           className="scoop-option__input"
-          id="scoop-option"
           type="number"
           defaultValue={0}
+          id={name}
           onChange={handleChange}
         />
       </form>

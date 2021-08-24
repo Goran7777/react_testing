@@ -40,14 +40,19 @@ describe('grand total', () => {
 
     // update vanilla scoops to 2 and check grand total
     const vanillaInput = await screen.findByLabelText('Vanilla');
+
     userEvent.clear(vanillaInput);
     userEvent.type(vanillaInput, '2');
-    expect(grandTotal).toHaveTextContent('4.00');
+    const chocolateInput = screen.getByLabelText('Chocolate');
+    userEvent.clear(chocolateInput);
+    userEvent.type(chocolateInput, '3');
+
+    expect(grandTotal).toHaveTextContent('10.00');
 
     // add cherries and check grand total
     const cherriesCheckbox = await screen.findByLabelText('Cherries');
     userEvent.click(cherriesCheckbox);
-    expect(grandTotal).toHaveTextContent('5.50');
+    expect(grandTotal).toHaveTextContent('11.50');
   });
 
   test('grand total updates properly if topping is added first', async () => {
@@ -71,6 +76,7 @@ describe('grand total', () => {
 
     // add cherries
     const cherriesCheckbox = await screen.findByLabelText('Cherries');
+    userEvent.clear(cherriesCheckbox);
     userEvent.click(cherriesCheckbox);
     // grand total $1.50
 
